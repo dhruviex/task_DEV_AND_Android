@@ -39,9 +39,16 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
 
         addCustomTaskList();
         setAdapter();
+        newTaskBtnTapped();
         if(isMicrophonePresent()){
             getMicrophonePermission();
         }
+    }
+
+    private void newTaskBtnTapped() {
+        binding.btnNewTask.setOnClickListener(v -> {
+            startActivity(new Intent(this, NewTaskActivity.class));
+        });
     }
 
     private void addCustomTaskList() {
