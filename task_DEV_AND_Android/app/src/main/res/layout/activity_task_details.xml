@@ -34,16 +34,15 @@
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/titleEditText"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
-        android:maxLines="1"
         android:textColor="@color/black"
-        android:textSize="@dimen/_15ssp"></EditText>
+        android:textSize="@dimen/_15ssp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
@@ -56,76 +55,45 @@
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/descEditText"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_task_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
-        android:maxLines="3"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:textColor="@color/black"
-        android:textSize="@dimen/_15ssp"></EditText>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:text="@string/txt_record_sound"
-        android:textColor="@color/app_blue"
-        android:textSize="@dimen/_16ssp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/_15ssp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_5sdp">
 
-        <Button
-            android:id="@+id/recordbtn"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_edit"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:onClick="btnRecordPressed"
-            android:text="⏺️"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:text="@string/txt_edit"
+            android:textSize="@dimen/_14ssp"
+            android:background="@color/teal_700"/>
 
-        <Button
-            android:id="@+id/playbtn"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:onClick="btnPlayPressed"
-            android:text="▶️"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/recordbtn" />
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:text="@string/txt_delete"
+            android:textSize="@dimen/_14ssp"
+            android:background="@color/red"/>
 
-        <Button
-            android:id="@+id/stopbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:onClick="btnStopPressed"
-            android:text="⏹️"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/playbtn" />
     </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_add_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:textColor="@color/white"
-        android:text="@string/txt_add_text"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:textSize="@dimen/_14ssp"
-        android:background="@color/app_blue"/>
 
 </LinearLayout>

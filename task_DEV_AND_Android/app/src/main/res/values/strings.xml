@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">task_DEV_AND_Android</string>
     <string name="txt_new_task">New Task</string>
+    <string name="txt_task_name">Task Name</string>
+    <string name="txt_record_sound">Record Sound</string>
+    <string name="txt_task_desc">Task Description</string>
+    <string name="txt_add_text">Add Task</string>
+    <string name="txt_edit">Update</string>
+    <string name="txt_delete">Delete</string>
 </resources>

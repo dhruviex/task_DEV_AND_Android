@@ -36,30 +36,41 @@ public class NewTaskActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setContentView(R.layout.new_task);
-        initWidgets();
-        checkForEditProduct();
 
         if(isMicrophonePresent()){
             getMicrophonePermission();
         }
+
+        EditText titleEditText = findViewById(R.id.titleEditText);
+        EditText descEditText = findViewById(R.id.descEditText);
+        Button addTaskButton = findViewById(R.id.btn_add_task);
+
+
+        //add button click listener
+        addTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                //get current values of task
+                String taskName = titleEditText.getText().toString();
+                String taskDescription = descEditText.getText().toString();
+
+                //check for empty values
+                if (!taskName.isEmpty() && !taskDescription.isEmpty()) {
+                    DatabaseHelper dbHandler = new DatabaseHelper(NewTaskActivity.this);
+                    //insert new values to database
+                    dbHandler.insertTaskDetails(
+                            taskName,
+                            taskDescription,
+                            "false"
+                    );
+                    //success toast
+                    Toast.makeText(getApplicationContext(), "Task Added Successfully.", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please fill all values properly!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
-    private void initWidgets() {
-        titleEditText = findViewById(R.id.titleEditText);
-
-
-    }
-
-    private void checkForEditProduct() {
-        Intent previousIntent = getIntent();
-        int passedTaskID = previousIntent.getIntExtra(selectTask.TASK_EDIT_EXTRA,-1);
-
-        if (selectTask != null){
-            titleEditText.setText(selectTask.getTaskName());
-
-        }
-
-    }
-
 
     public void saveList(View view) {
     }

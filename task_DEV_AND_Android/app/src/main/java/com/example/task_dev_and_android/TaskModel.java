@@ -7,20 +7,20 @@ public class TaskModel {
     private String taskId;
     private String taskName;
     private String taskDescription;
-    private Boolean taskIsDone;
+    private String taskIsDone;
 
     //task details constructor
-    public TaskModel(String taskId, String taskName, String taskDescription, Boolean taskIsDone) {
-        this.taskId = taskId;
+    public TaskModel( String taskName, String taskDescription, String taskIsDone) {
+//        this.taskId = taskId;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.taskIsDone = taskIsDone;
     }
 
     //task details getter methods
-    public String getTaskId() {
-        return taskId;
-    }
+//    public String getTaskId() {
+//        return taskId;
+//    }
 
     public String getTaskName() {
         return taskName;
@@ -30,7 +30,7 @@ public class TaskModel {
         return taskDescription;
     }
 
-    public Boolean getTaskIsDone() {
+    public String getTaskIsDone() {
         return taskIsDone;
     }
 

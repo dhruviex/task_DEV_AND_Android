@@ -38,6 +38,36 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
         addCustomTaskList();
         setAdapter();
         newTaskBtnTapped();
+
+        
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //to reload task list on re appearing the activity
+        setTaskList();
+        setAdapter();
+    }
+
+    //set task list from data base
+    private void setTaskList() {
+       taskList = new ArrayList<>();
+
+        //get task list from database and set to task list
+        DatabaseHelper db = new DatabaseHelper(this);
+        ArrayList<HashMap<String, String>> tasks_list = db.GetTasks();
+
+        if (tasks_list.size() > 0) {
+            for (int i = 0; i < tasks_list.size(); i++) {
+                HashMap<String, String> currentTask = tasks_list.get(i);
+                taskList.add(new TaskModel(
+                        currentTask.get("task_name"),
+                        currentTask.get("task_description"),
+                        currentTask.get("task_done")));
+            }
+        }
+
     }
 
     private void newTaskBtnTapped() {
@@ -49,11 +79,11 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
     private void addCustomTaskList() {
         taskList = new ArrayList<>();
         //add static tasks for testing purpose
-        taskList.add(new TaskModel("id1", "Test Task1", "Task Description1",false));
-        taskList.add(new TaskModel("id2", "Test Task2", "Task Description2",false));
-        taskList.add(new TaskModel("id3", "Test Task3", "Task Description3",false));
-        taskList.add(new TaskModel("id4", "Test Task4", "Task Description4",false));
-        taskList.add(new TaskModel("id5", "Test Task5", "Task Description5",false));
+        taskList.add(new TaskModel("Test Task1", "Task Description1","false"));
+        taskList.add(new TaskModel( "Test Task2", "Task Description2","false"));
+        taskList.add(new TaskModel( "Test Task3", "Task Description3","false"));
+        taskList.add(new TaskModel( "Test Task4", "Task Description4","false"));
+        taskList.add(new TaskModel( "Test Task5", "Task Description5","false"));
     }
 
     //set task adapter method
