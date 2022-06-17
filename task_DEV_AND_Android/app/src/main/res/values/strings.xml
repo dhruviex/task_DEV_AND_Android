@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">task_DEV_AND_Android</string>
+    <string name="txt_new_task">New Task</string>
 </resources>
