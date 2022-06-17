@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         android:theme="?actionBarTheme"
-        android:background="@color/purple_200">
+        android:background="#7BC0DF">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Task Details"
             android:textSize="35sp"
-            android:textColor="@color/black"
+            android:textColor="@android:color/holo_blue_dark"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="#7BC0DF"
             android:onClick="saveList"
             android:text="💾"
             android:textColor="@color/black"
@@ -40,7 +40,7 @@
         android:text="Title"
         android:textSize="25sp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/holo_blue_dark"
         android:textStyle="bold"
         android:layout_gravity="center"></TextView>
 
@@ -51,7 +51,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:maxLines="3"
-        android:textColor="@color/black"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="25sp"></EditText>
 
     <TextView
@@ -60,7 +60,7 @@
         android:text="Record Sound"
         android:textSize="25sp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/holo_blue_dark"
         android:textStyle="bold"
         android:layout_gravity="center"></TextView>
 
@@ -94,16 +94,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playbtn" />
 
-    <Button
-        android:id="@+id/deleteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/purple_200"
-        android:onClick="DeleteData"
-        android:text="Delete"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
 
 </LinearLayout>
