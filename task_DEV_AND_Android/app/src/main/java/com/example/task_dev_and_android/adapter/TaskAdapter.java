@@ -1,4 +1,4 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.task_dev_and_android.databinding.TaskViewBinding;
+import com.example.task_dev_and_android.model.TaskModel;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         //call on click listeners here
     }
 
-    TaskAdapter(Context context, TaskClickListener mListener){
+    public TaskAdapter(Context context, TaskClickListener mListener){
         this.context = context;
         this.mListener = mListener;
     }

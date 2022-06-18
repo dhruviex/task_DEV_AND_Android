@@ -1,8 +1,7 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.activities;
 
 import android.Manifest;
 import android.content.ContextWrapper;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -17,10 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.task_dev_and_android.R;
+import com.example.task_dev_and_android.database.DatabaseHelper;
 import com.example.task_dev_and_android.databinding.ActivityMainBinding;
+import com.example.task_dev_and_android.model.TaskModel;
 
 import java.io.File;
-import java.util.Date;
 
 public class NewTaskActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
