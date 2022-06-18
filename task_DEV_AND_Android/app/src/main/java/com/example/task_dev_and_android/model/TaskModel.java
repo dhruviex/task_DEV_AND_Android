@@ -1,4 +1,4 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.model;
 
 import java.sql.Blob;
 

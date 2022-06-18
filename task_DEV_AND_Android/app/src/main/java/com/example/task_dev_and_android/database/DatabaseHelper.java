@@ -1,4 +1,4 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.database;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Adding new Task Details
-    void insertTaskDetails(String task_name, String task_description, String task_done){
+    public void insertTaskDetails(String task_name, String task_description, String task_done){
         //Get the Data Repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
         //Create a new map of values, where column names are the keys

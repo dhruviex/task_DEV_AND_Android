@@ -1,25 +1,18 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.Manifest;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.Toast;
 
+import com.example.task_dev_and_android.adapter.TaskAdapter;
+import com.example.task_dev_and_android.database.DatabaseHelper;
 import com.example.task_dev_and_android.databinding.ActivityMainBinding;
+import com.example.task_dev_and_android.model.TaskModel;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
