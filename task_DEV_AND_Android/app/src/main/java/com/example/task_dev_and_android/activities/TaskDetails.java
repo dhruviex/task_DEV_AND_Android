@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.task_dev_and_android.R;
 import com.example.task_dev_and_android.database.DatabaseHelper;
+import com.example.task_dev_and_android.model.TaskModel;
 
 public class TaskDetails extends AppCompatActivity {
 
@@ -56,6 +57,17 @@ public class TaskDetails extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Please fill all values properly!!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        //delete button listener
+        deleteTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                DatabaseHelper db = new DatabaseHelper(TaskDetails.this);
+                //delete task with current task ID
+                db.DeleteTask(preTaskName);
+                Toast.makeText(getApplicationContext(),"Task Deleted Successfully.",Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
