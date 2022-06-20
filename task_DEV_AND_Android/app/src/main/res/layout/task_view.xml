@@ -23,29 +23,60 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/task_title"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="@dimen/_220sdp"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/task_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Medium Text"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#4d4d4d"
+                    android:textSize="@dimen/_16ssp"
+                    android:maxLines="1"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/task_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:text="TextView"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_task_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="#00FFFFFF"/>
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/delete_task_btn"
+                android:layout_width="63dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:padding="@dimen/_2sdp"
-                android:text="Medium Text"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#4d4d4d"
-                android:textSize="@dimen/_16ssp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/task_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_2sdp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="TextView"
-                android:textSize="@dimen/_14ssp" />
+                android:background="@color/white"
+                android:contentDescription="@string/delete"
+                android:scaleType="center"
+                android:src="@android:drawable/ic_delete" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

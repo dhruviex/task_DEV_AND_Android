@@ -19,8 +19,7 @@ public class TaskDetails extends AppCompatActivity {
 
         //get previous details for task
         String preTaskName = getIntent().getStringExtra("TASK_NAME");
-        String preTaskDescription = getIntent().getStringExtra("TASK_DESC");
-
+        String preTaskDescription = getIntent().getStringExtra("TASK_DESCRIPTION");
 
         //set previous task name
         EditText taskNameEditText = findViewById(R.id.et_task_name);

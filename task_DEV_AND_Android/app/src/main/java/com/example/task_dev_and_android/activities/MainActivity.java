@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
+import com.example.task_dev_and_android.TaskDetails;
 import com.example.task_dev_and_android.adapter.TaskAdapter;
 import com.example.task_dev_and_android.database.DatabaseHelper;
 import com.example.task_dev_and_android.databinding.ActivityMainBinding;
@@ -98,6 +100,40 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
         boolean checked = ((CheckBox) view).isChecked();
     }
 
+    //on delete btn tap listener
+    @Override
+    public void onDeleteClickListener(int position) {
+        //check current position for task position
+        if (taskList.size() > 0) {
+            if (taskList.get(position) != null) {
+                TaskModel currentPlace = taskList.get(position);
+                DatabaseHelper db = new DatabaseHelper(this);
 
+                //delete task with current task ID
+                db.DeleteTask(currentPlace.getTaskName());
+                Toast.makeText(this,"Task Deleted Successfully.",Toast.LENGTH_SHORT).show();
+
+                //reload activity
+                setTaskList();
+                setAdapter();
+            }
+        }
+    }
+
+    @Override
+    public void onUpdateClickListener(int position) {
+        //check current position for task position
+        if (taskList.size() > 0) {
+            if (taskList.get(position) != null) {
+                TaskModel currentPlace = taskList.get(position);
+                //call update activity and pass current record data
+                Intent intent = new Intent(getBaseContext(), TaskDetails.class);
+                intent.putExtra("TASK_NAME", currentPlace.getTaskName());
+                intent.putExtra("TASK_DESCRIPTION", currentPlace.getTaskDescription());
+                intent.putExtra("TASK_IS_DONE", currentPlace.getTaskIsDone());
+                startActivity(intent);
+            }
+        }
+    }
 
 }

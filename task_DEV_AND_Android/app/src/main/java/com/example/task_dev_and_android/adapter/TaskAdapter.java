@@ -2,6 +2,7 @@ package com.example.task_dev_and_android.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -18,7 +19,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     ArrayList<TaskModel> taskList;
 
     public interface TaskClickListener{
-        //call on click listeners here
+        void onDeleteClickListener(int position);
+        void onUpdateClickListener(int position);
     }
 
     public TaskAdapter(Context context, TaskClickListener mListener){
@@ -60,7 +62,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         }
 
         private void init() {
-            //add on click listeners here
+            itemView.deleteTaskBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.onDeleteClickListener(getAdapterPosition());
+                }
+            });
+
+            itemView.btnTaskDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.onUpdateClickListener(getAdapterPosition());
+                }
+            });
         }
 
         public void setDataToView(TaskModel taskModel) {

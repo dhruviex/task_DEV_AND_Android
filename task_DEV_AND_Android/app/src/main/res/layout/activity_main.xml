@@ -30,6 +30,6 @@
         android:textColor="@color/white"
         android:text="@string/txt_new_task"
         android:textSize="@dimen/_14ssp"
-        android:background="@color/teal_700"/>
+        android:background="@color/app_blue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
