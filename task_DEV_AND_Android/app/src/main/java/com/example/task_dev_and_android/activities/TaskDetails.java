@@ -1,4 +1,4 @@
-package com.example.task_dev_and_android;
+package com.example.task_dev_and_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.task_dev_and_android.R;
 import com.example.task_dev_and_android.database.DatabaseHelper;
 
 public class TaskDetails extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class TaskDetails extends AppCompatActivity {
         //get previous details for task
         String preTaskName = getIntent().getStringExtra("TASK_NAME");
         String preTaskDescription = getIntent().getStringExtra("TASK_DESCRIPTION");
+        String preTaskDone = getIntent().getStringExtra("TASK_IS_DONE");
 
         //set previous task name
         EditText taskNameEditText = findViewById(R.id.et_task_name);
@@ -45,7 +47,8 @@ public class TaskDetails extends AppCompatActivity {
                     //update database values with new values
                     dbHandler.UpdateTaskDetails(
                             taskNameEditText.getText().toString(),
-                            taskDescriptionEditText.getText().toString()
+                            taskDescriptionEditText.getText().toString(),
+                            preTaskDone
                     );
                     //success toast
                     Toast.makeText(getApplicationContext(), "Task Updated Successfully.", Toast.LENGTH_SHORT).show();

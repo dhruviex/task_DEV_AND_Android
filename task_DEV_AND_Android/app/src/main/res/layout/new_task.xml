@@ -73,6 +73,29 @@
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_15sdp"
+        android:text="@string/txt_select_image"
+        android:textColor="@color/app_blue"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/add_image_btn"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:scaleType="centerInside"
+        android:contentDescription="TODO" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:text="@string/txt_record_sound"
         android:textColor="@color/app_blue"

@@ -97,11 +97,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Update Task Details
-    public int UpdateTaskDetails( String task_name, String task_description){
+    public int UpdateTaskDetails( String task_name, String task_description, String task_done){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues taskValues = new ContentValues();
         taskValues.put(KEY_TASK_NAME, task_name);
         taskValues.put(KEY_TASK_DESCRIPTION, task_description);
+        taskValues.put(KEY_TASK_DONE, task_done);
         int count = db.update(TABLE_TASKS, taskValues, KEY_TASK_NAME+" = ?",new String[]{String.valueOf(task_name)});
         return  count;
     }

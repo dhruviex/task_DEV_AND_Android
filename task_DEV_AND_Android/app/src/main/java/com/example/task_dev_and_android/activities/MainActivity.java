@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.example.task_dev_and_android.TaskDetails;
 import com.example.task_dev_and_android.adapter.TaskAdapter;
 import com.example.task_dev_and_android.database.DatabaseHelper;
 import com.example.task_dev_and_android.databinding.ActivityMainBinding;
@@ -30,11 +29,9 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        addCustomTaskList();
+        setTaskList();
         setAdapter();
         newTaskBtnTapped();
-
-        
     }
 
     @Override
@@ -71,16 +68,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
         });
     }
 
-    private void addCustomTaskList() {
-        taskList = new ArrayList<>();
-        //add static tasks for testing purpose
-        taskList.add(new TaskModel("Test Task1", "Task Description1","false"));
-        taskList.add(new TaskModel( "Test Task2", "Task Description2","false"));
-        taskList.add(new TaskModel( "Test Task3", "Task Description3","false"));
-        taskList.add(new TaskModel( "Test Task4", "Task Description4","false"));
-        taskList.add(new TaskModel( "Test Task5", "Task Description5","false"));
-    }
-
     //set task adapter method
     private void setAdapter() {
         if (mAdapter == null) {
@@ -93,11 +80,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
         }
 
         mAdapter.doRefresh(taskList);
-    }
-
-
-    public void onCheckboxClicked(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
     }
 
     //on delete btn tap listener
@@ -134,6 +116,22 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.TaskC
                 startActivity(intent);
             }
         }
+    }
+
+    @Override
+    public void onCheckBoxClick(int position, boolean value) {
+        DatabaseHelper dbHandler = new DatabaseHelper(MainActivity.this);
+        TaskModel currentPlace = taskList.get(position);
+        //update database values with new values
+        dbHandler.UpdateTaskDetails(
+                currentPlace.getTaskName(),
+                currentPlace.getTaskDescription(),
+                String.valueOf(value)
+        );
+        //success toast
+        Toast.makeText(getApplicationContext(), "Task Updated Successfully.", Toast.LENGTH_SHORT).show();
+        setTaskList();
+        setAdapter();
     }
 
 }

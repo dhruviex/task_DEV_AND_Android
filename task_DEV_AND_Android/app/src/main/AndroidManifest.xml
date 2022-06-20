@@ -3,6 +3,8 @@
     package="com.example.task_dev_and_android">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task_DEV_AND_Android">
         <activity
-            android:name=".TaskDetails"
+            android:name=".activities.TaskDetails"
             android:exported="false" />
         <activity
             android:name=".activities.NewTaskActivity"
